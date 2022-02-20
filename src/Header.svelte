@@ -16,6 +16,10 @@
             <img src={"https://avatars.dicebear.com/api/adventurer/${$username}.svg"}/>
         </div>
 
-        <button class="signout-button" on
+        <button class="signout-button" on:click={signout}>
+            Sign Out
+        </button>
+    {:else}
+        <h3>Gun.js Chat</h3>
     {/if}
 </header>
