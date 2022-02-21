@@ -12,7 +12,7 @@
         user.create(username, password),
             ({ err }) => {
                 if (err) {
-                    alert(err);
+                   alert(err);
                 } else {
                     login();
                 }

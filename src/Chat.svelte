@@ -21,7 +21,7 @@
                     var message = {
                         // transform the data
                         who: await db.user(data).get("alias"),
-                        what: (await SEA.decrypt(data.what, key)) + "",
+                        what: (await SEA.SEA.decrypt(data.what, key)) + "",
                         when: GUN.state.is(data, "what"),
                     };
                     if (message.what) {
@@ -32,7 +32,7 @@
     });
 
     async function sendMessage() {
-        const secret = await SEA.encrypt(newMessage, '#foo');
+        const secret = await SEA.SEA.encrypt(newMessage, '#foo');
         const message = user.get('all').set({what: secret});
         const index = new Date().toISOString();
         db.get('chat').get(index).put(message);
@@ -49,7 +49,9 @@
         </main>
 
         <form on:submit|preventDefault={sendMessage}>
+            <input type="text" placeholder="Type a message..." bind:value={newMessage} maxlength="100" />
 
+            <button type="submit" disabled={!newMessage}>send</button>
         </form>
     {:else}
         <main>
