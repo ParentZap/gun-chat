@@ -1,4 +1,5 @@
 <script>
+// @ts-nocheck
     import GUN from "gun";
     import SEA from "gun";
     import { onMount } from "svelte";
@@ -40,11 +41,23 @@
     }
 </script>
 
+<style>
+    .odd-message-container {
+        background-color:rgb(78, 78, 78) 
+    }
+
+    .even-message-container {
+        background-color: rgb(179, 179, 179);
+    }
+</style>
+
 <div class="container">
     {#if $username}
         <main>
-            {#each messages as message (message.when)}
+            {#each messages as message, idx (message.when)}
+            <div class={idx % 2 == 0 ? 'odd-message-container' : 'even-message-container'}>
                 <ChatMessage {message} sender={$username}/>
+            </div>
             {/each}
         </main>
 
