@@ -14,7 +14,7 @@
   :root {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      background-color: rgb(164, 84, 240);
+      background-color: rgb(84, 222, 240);
   }
 
   main {
